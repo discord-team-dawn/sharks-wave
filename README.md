@@ -17,32 +17,32 @@ target_host : wave = "SCI_MAIN_SERVER"
 secure_port : wave = 443
 ```
 
-```# 리터럴 문자열 출력
+```리터럴 문자열 출력
 sw.say("--- Shark's Wave 가상 커널 가동 ---")
 +sw.say는 파이썬의 print와 같다.
 ```
 
-```# 변수 참조 출력
+```변수 참조 출력
 sw.say(target_host)
 ```
-```# 1. 패키지 및 봇 프레임워크 가동 권한 승인
+```1. 패키지 및 봇 프레임워크 가동 권한 승인
 import python and SWE.discord
 import discord.swe
 import bot
 ```
 
-```# 2. 환경 변수 지정
+```2. 환경 변수 지정
 prefix : wave = "!"
 token : wave = "MTA5MjkzODQ..."
 ```
 ```sw.say("--- 커널 로딩 완료 ---")
 sw.say(prefix)
 ```
-```# 3. 백그라운드 무한 동기화 루프 가동
+```3. 백그라운드 무한 동기화 루프 가동
 Whale {
     sw.say("백그라운드 동기화 펄스 유지 중...")
 }
 ```
-```# 4. 실시간 디스코드 API 세션 인증
+```4. 실시간 디스코드 API 세션 인증
 swe.login(token)
 ```
