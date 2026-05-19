@@ -1,48 +1,32 @@
-# 🌊 Shark's Wave (.swe) Programming Language
+# 🌊 Shark's Wave (.swe) Programming Language (v1.3)
 
-> **[CLASSIFIED] SCI OS 정보부 전용 고성능 커스텀 보안 연산 및 침투 제어 스크립트 언어**
+SCI OS 정보부 가상 머신에서 동작하는 고성능 커스텀 보안 연산 및 봇 네트워크 빌딩 언어입니다.
 
-Shark's Wave(.swe)는 가상 보안 커널 프레임워크와 디스코드 봇 네트워크 제어를 위해 특별히 설계된 독자적인 스크립팅 언어입니다. 직관적인 해양 테마의 구문 규격과 파이썬/디스코드 커널 아키텍처와의 강력한 하이브리드 바인딩을 지원합니다.
+## ⚡ 확장된 표준 문법 명세
 
----
-
-## ⚡ 핵심 표준 문법 규격 (v1.2)
-
-### 1. 변수 선언 (`: wave =`)
-데이터의 흐름을 지정합니다. 변수명을 먼저 정의하고 `: wave =` 접두사를 통해 데이터를 흐름에 탑승시킵니다. 내부적으로 문자열, 정수형 등을 자동으로 가상 메모리에 매핑합니다.
+### 1. 디스코드 메시지 송출 (`say.discord`)
+로컬 콘솔에 출력하는 `sw.say`와 달리, `say.discord("내용")` 구문은 연동된 디스코드 채널 내부로 봇이 직접 텍스트 메시지를 타이핑하여 전송하도록 지시합니다. (파이썬 discord.py의 `channel.send`와 매핑)
 
 ```swe
-# 보안 타겟 및 포트 선언 예시
-target_host : wave = "SCI_MAIN_SERVER"
-secure_port : wave = 443
-```
+# 디스코드 채널로 실시간 알림 송출 예시
+say.discord("⚠️ 경고: 외부 서브루틴 침투 흔적이 감지되었습니다.")
 
-```리터럴 문자열 출력
-sw.say("--- Shark's Wave 가상 커널 가동 ---")
-+sw.say는 파이썬의 print와 같다.
-```
-
-```변수 참조 출력
-sw.say(target_host)
-```
-```1. 패키지 및 봇 프레임워크 가동 권한 승인
+# [Phase 1] 커널 프레임워크 임포트
 import python and SWE.discord
 import discord.swe
 import bot
-```
 
-```2. 환경 변수 지정
-prefix : wave = "!"
-token : wave = "MTA5MjkzODQ..."
-```
-```sw.say("--- 커널 로딩 완료 ---")
-sw.say(prefix)
-```
-```3. 백그라운드 무한 동기화 루프 가동
+# [Phase 2] 시스템 변수 셋업
+bot_prefix : wave = "!"
+secure_token : wave = "MTA5Mjkz..."
+
+sw.say("[LOCAL] .swe 인프라 오버레이 기동 중...")
+
+# [Phase 3] 무한 루프 프로세스 (최대 60초 가동 보장)
 Whale {
-    sw.say("백그라운드 동기화 펄스 유지 중...")
+    sw.say("[LOCAL] 백그라운드 펄스 정상 작동 중")
+    say.discord("📡 [SHARK BOT] 실시간 보안 그리드 동기화 펄스 송신 중...")
 }
-```
-```4. 실시간 디스코드 API 세션 인증
-swe.login(token)
-```
+
+# [Phase 4] 봇 로그인 및 60초 타이머 자동 개시
+swe.login(secure_token)
